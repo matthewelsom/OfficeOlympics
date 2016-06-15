@@ -1,0 +1,43 @@
+  {% include head.html %}
+  <body>
+  <header class="site-header">
+  <div class="wrapper">
+    <a class="site-title" href="index.html" title="{{ site.title | strip_html }}"><img src="assets/img/logo.png"></a>
+    <div id="menu-trigger" class="trigger">MENU</div>
+    <nav id="main-menu" class="site-nav">
+    
+      <ul class="top-level">
+        <li>
+          <a href="index.html">League Table</a>
+        </li>
+        <li>
+          <a href="manage.html">Manage Players</a>
+        </li>
+        <li class="current">
+          <a href="play.html">Quick Play</a>
+        </li>
+      </ul> 
+    </nav>
+  </div>
+</header>  
+
+   <article>
+       
+       {% include sidemenu.html %}
+        
+  <div class="page-content">
+    <div class="page-title">
+      <h4>{{ page.title }}</h4>
+    </div>
+    <div class="wrapper">
+    {{ content }}
+    </div>
+    
+  </div>
+  </article>
+  {% include footer.html %}
+
+  <script src="assets/js/global.js"></script>
+  </body>
+
+</html>

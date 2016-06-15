@@ -1,0 +1,39 @@
+---
+title: Manage Players
+layout: manage
+---
+
+
+<div class="table-x-scroll">
+  <table id="users" class="tables scrollable manage">
+    <thead>
+      <tr>
+        <th data-dynatable-column="name">Player Name</th>
+        <th data-dynatable-column="status">Status</th>
+        <th data-dynatable-column="edit">Edit</th>
+      </tr>
+    </thead>
+    
+  </table>
+</div>  
+
+
+    
+<script>
+  $(document).ready(function() {
+    $("#users").dataTable({
+      "ajax": 'data/players.js',
+      "paging":   false,
+      "info":     false,
+      "order": [[ 0, "asc" ]],
+      "bFilter": true,
+      "sDom":"lrtip" // default is lfrtip, where the f is the filter
+     });
+    var oTable;
+    oTable = $('#users').dataTable();
+
+    $('#status-filter').change( function() { 
+          oTable.fnFilter( $(this).val() ); 
+     });
+ });
+</script>

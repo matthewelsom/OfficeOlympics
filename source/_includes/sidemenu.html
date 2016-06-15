@@ -1,0 +1,9 @@
+<aside>
+  <ul>
+  {% for item in site.data.[page.data-sheet] %} 
+    <li class="{{ item.class }}{% if page.url contains item.url %}{% assign active-state = 'current' %}{{ active-state }}{% endif %}">
+      <a href="{{ item.url | prepend: site.baseurl }}">{{ item.name }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+</aside>

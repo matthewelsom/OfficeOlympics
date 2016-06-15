@@ -1,0 +1,8 @@
+- name: Foosball
+  url: index.html  
+  
+- name: Air Hockey 
+  url: airhockey.html  
+  
+- name: Pool
+  url: pool.html    

@@ -1,0 +1,86 @@
+@include font-face("Open Sans", "../fonts/open-sans/opensans-regular-webfont", normal);
+@include font-face("Open Sans", "../fonts/open-sans/opensans-bold-webfont", bold);
+
+@include font-face("Font Awesome", "../fonts/font-awesome/fontawesome-webfont", normal);
+
+
+$sans-serif: 'Open Sans', sans-serif;
+$fa: 'Font Awesome';
+
+body {
+  @include font-feature-settings("kern","liga","frac", "pnum");
+  -webkit-font-smoothing: antialiased;
+  background-color: $base-background-color;
+  color: $base-font-color;
+  font-family: $sans-serif;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $sans-serif;
+  line-height: $header-line-height;
+  margin: 0;
+}
+
+h1 {
+	font-size: $h1-font-size;
+}
+
+h2 {
+	font-size: $h2-font-size;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: $h3-font-size;
+}
+
+h4 {
+	font-size: $h4-font-size;
+	line-height: 1.5em;
+}
+
+h5 {
+	font-size: 0.9em;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+h6 {
+	font-size: $h6-font-size;
+	font-weight: bold;
+	padding: .3em 0;
+	text-transform: uppercase;
+}
+p {
+	margin: 0 0 ($base-spacing / 2);
+	font-family: $sans-serif;
+	margin-bottom: 1.5em;
+}
+
+a {
+  @include transition(color 0.1s linear);
+  color: $base-link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $base-link-color;
+	text-decoration: underline;
+  }
+  &:active, &:focus {
+    color: darken($base-link-color, 10%);
+  }
+}
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+}

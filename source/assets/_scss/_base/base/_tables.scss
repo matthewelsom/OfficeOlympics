@@ -1,0 +1,209 @@
+$table-border-color: #f9f9f9;
+$table-border: 1px solid $table-border-color;
+
+$table-background: white;
+$table-header-background: darken($table-border-color, 6%);
+$table-header-color: darken($base-font-color, 20%);
+
+$table-stripe-background: darken($table-background, 4%);
+$table-stripe-background-hover: $blue;
+$table-stripe-background-color: darken($table-header-color, 20%);
+$table-stripe-color: $white;
+
+$table-padding: 1em;
+
+$status-padding: 0.2em 0.6em;
+$e-bg: $blue;
+$g-bg: $pink;
+
+// TABLE HEADER
+
+.table-header {
+  padding: .5em 0;
+  color: $red;
+}
+
+// TABLE VARIATIONS
+
+.table-x-scroll {
+  width: 100%;
+  overflow-x: scroll;
+  border: $table-border;
+  border-radius: $base-border-radius;
+  position: relative;
+  margin-bottom: 2em;
+}
+.table-helper {
+  display: none;
+  width: 100%;
+  background: $table-header-background;
+  border: $table-border;
+  border-top: 0;
+  border-bottom-right-radius: $base-border-radius;
+  border-bottom-left-radius: $base-border-radius;
+  text-align: center;
+  color: $table-header-color;
+  padding: .2em .5em;
+  margin-bottom: 2em;
+  font-size: 10px;
+  font-weight: bold;
+}
+.tables.scrollable {
+ table-layout: fixed;
+  width: auto;
+  min-width: 100%;
+  margin: 0;
+}
+
+// DEFAULT TABLE STYLES
+
+table.tables.manage {
+  thead:first-of-type {
+    tr:first-child > th:nth-child(2) {
+      min-width: 100px;
+      text-align: left;
+    }
+  }
+  tbody {
+    tr td:nth-child(2) {
+      text-align: left;
+    }
+    tr:hover > td a {
+      color: $white;
+    }
+  }
+}
+
+table.tables {
+  border-collapse: separate;
+  border-spacing: 0;
+  
+  &.no-footer {
+    border-bottom: 0;
+  }
+  
+  .g, .e {
+    padding: $status-padding;
+    font-size: 0.8em;
+    color: $white;
+    border-radius: $base-border-radius;
+    background: $e-bg;
+  }
+  .g{
+    background: $g-bg;
+  }
+  
+  tbody {
+    background-color: $table-background;
+
+    tr:hover > td, tr:hover > th {
+      background-color: $table-stripe-background-hover;
+      color: $table-stripe-color;
+      font-weight: bold;
+      @include transition(all .2s ease);
+      
+      .g, .e {
+        background: $white;
+        color: $e-bg;
+      }
+      .g {
+        color: $g-bg;
+      }
+    }
+    tr:nth-child(even) {
+      background-color: $table-stripe-background;
+      &:hover > td {
+        background-color: $table-stripe-background-hover;
+        color: $table-stripe-color;
+        font-weight: bold;
+      }
+    }
+  }
+
+  thead:first-of-type {
+    tr:first-child > th:first-child {
+      border-top-left-radius: $base-border-radius;
+      text-align: left;
+      min-width: 200px;
+    }
+    tr:first-child > th:last-child {
+      min-width: 100px;
+      text-align: left;
+    }
+
+    tr:first-child > th:last-child {
+      border-top-right-radius: $base-border-radius;
+    }
+    .sorting_asc,
+    .sorting_desc,
+    .sorting:hover,
+    .sorting_asc:hover,
+    .sorting_desc:hover {
+      color: $table-stripe-background-hover;
+    }
+    .sorting,
+    .sorting_asc,
+    .sorting_desc {
+      background-position: center right .2em;
+      background-repeat: no-repeat;
+      background-size: 19px;
+      cursor: pointer;
+    }
+    .sorting {
+      background-image: url(../img/sorting_both.png);
+    }
+    .sorting_desc {
+      background-image: url(../img/sorting_desc.png);
+    }
+    .sorting_asc {
+      background-image: url(../img/sorting_asc.png);
+    }
+  }
+
+  tbody:last-child {
+    tr:last-child > td:first-child {
+      border-bottom-left-radius: $base-border-radius;
+    }
+
+    tr:last-child > td:last-child {
+      border-bottom-right-radius: $base-border-radius;
+    }
+  }
+
+  thead {
+    th {
+      background-color: $table-header-background;
+      border-bottom: 0;
+      border-left: 1px solid $table-border-color;
+      padding: $table-padding /2 $table-padding;
+      text-align: center;
+      vertical-align: middle;
+      min-width: 100px;
+      color: $table-header-color;
+
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+
+  tbody {
+    background-color: $table-background;
+
+    td {
+      border-bottom: 0px;
+      border-left: 1px solid $table-border-color;
+      border-top: 1px solid $table-border-color;
+      padding: $table-padding /2 $table-padding;
+      text-align: center;
+
+      &:first-child {
+        border-left: none;
+        text-align: left;
+      }
+      &:last-child {
+        text-align: left;
+      }
+    }
+  }
+}

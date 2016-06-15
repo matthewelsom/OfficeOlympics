@@ -1,0 +1,86 @@
+$page-title-bg: $blue;
+$title-height: 84px;
+
+html, body {
+  height: 100%;
+}
+
+// Article
+article {
+  min-height: 100%;
+  padding-top: $header-height;
+  
+  @include media (min-width $menu-breakpoint) {
+    padding-top: 0;
+  }
+  @include media (min-width $page-breakpoint) {
+    @include display(flex);
+  }
+}
+
+// Page Content
+.page-content {
+  min-height: 100%;
+  width: 100%;
+  padding-bottom: 80px;
+  
+  @include media (min-width $page-breakpoint) {
+    width: calc(100% - 200px);
+    box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.2);
+    border-top-left-radius: $base-border-radius;    
+  }
+  .wrapper {
+    padding: .5em;
+  }
+}
+
+// Page Title
+.page-title {
+  padding: 1em;
+  min-height: $title-height;
+  background: $page-title-bg;
+  border-bottom: 1px solid darken($page-title-bg, 10%);
+  @include clearfix;
+  
+  @include media (min-width $menu-breakpoint) {
+    padding-top: .8em;
+  }
+  @include media (min-width $page-breakpoint) {
+    border-top-left-radius: $base-border-radius;
+  }
+  
+  h4 {
+    float: left;
+    color: $white;
+    display: block;
+    text-transform: none;
+    max-width: calc(100% - 140px);
+
+    @include media (min-width $page-breakpoint) {
+      font-size: 1.2em;
+    }
+
+    span {
+      margin-right: .5em;
+      display: block;
+      font-weight: 100;
+    }
+
+    
+  }
+  .btn {
+    float: right;
+    width: auto;
+    padding: .5em 1em;
+    margin: .7em 0;
+    border: 1px solid darken($blue, 7%);
+    background-color: $white;
+    border-radius: $base-border-radius;
+    @include transition(all .2s ease);
+    
+    &:hover {
+      text-decoration: none;
+      color: $base-font-color;
+    }
+  }
+}

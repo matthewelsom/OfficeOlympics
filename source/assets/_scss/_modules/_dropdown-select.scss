@@ -1,0 +1,45 @@
+.dropdown-select {
+  float: right;
+  width: 150px;
+  
+  .select-container {
+    position: relative;
+    padding: 0;
+    margin: 0.7em 0;
+    border: 1px solid darken($blue, 7%);
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #fff;
+    
+    &:after {
+      display: block;
+      width: 6px;
+      height: 6px;
+      content: '';
+      position: absolute;
+      top: .8em;
+      right: .5em;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid $base-font-color;
+    }
+  }
+  select {
+    width: 100%;
+    padding: 5px 8px;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    @include appearance(none);
+    
+    option:before {
+        position: absolute;
+        content: 'gfg';
+        display: block;
+    }
+   
+    &:focus {
+      outline: none;
+    }
+  }
+}

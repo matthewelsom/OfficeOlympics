@@ -1,0 +1,43 @@
+---
+title: League Table
+layout: default
+data-sheet: league
+sport: Foosball
+---
+
+
+<div class="table-x-scroll">
+  <table id="users" class="tables scrollable">
+    <thead>
+      <tr>
+        <th data-dynatable-column="name">Player Name</th>
+        <th data-dynatable-column="won">Won</th>
+        <th data-dynatable-column="lost">Lost</th>
+        <th data-dynatable-column="played">Played</th>
+        <th data-dynatable-column="status">Status</th>
+      </tr>
+    </thead>
+    
+  </table>
+</div>  
+
+
+    
+<script>
+  $(document).ready(function() {
+    $("#users").dataTable({
+      "ajax": 'data/foosball.js',
+      "paging":   false,
+      "info":     false,
+      "order": [[ 0, "asc" ]],
+      "bFilter": true,
+      "sDom":"lrtip" // default is lfrtip, where the f is the filter
+     });
+    var oTable;
+    oTable = $('#users').dataTable();
+
+    $('#status-filter').change( function() { 
+          oTable.fnFilter( $(this).val() ); 
+     });
+ });
+</script>
